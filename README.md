@@ -1,179 +1,173 @@
-# Academiadepolitie.com MCP Server
+# Academiadepolitie.com MCP Remote Server
 
-A Model Context Protocol server that provides AI tutoring capabilities for Romanian police academy entrance exam preparation.
+A Remote Model Context Protocol (MCP) server for Academiadepolitie.com - Romania's leading educational platform for police academy entrance exam preparation. Supporting over **50,000 students** with AI-powered tutoring and personalized learning analytics.
 
-<a href="https://glama.ai/mcp/servers/academiadepolitie"><img width="380" height="200" src="https://glama.ai/mcp/servers/academiadepolitie/badge" alt="Academiadepolitie.com MCP server" /></a>
+## 🚀 What is Remote MCP?
 
-## Overview
+Unlike Local MCP servers that run on your machine, this Remote MCP server runs on dedicated infrastructure and uses HTTP/SSE transport with OAuth 2.1 authentication. This enables:
+- **Scalable access** for multiple users
+- **Secure authentication** with your Academiadepolitie.com account  
+- **Real-time data** directly from the platform
+- **Production-grade reliability**
 
-This MCP server connects Claude to the Academiadepolitie.com educational platform, serving over 50,000 students preparing for entrance exams to Romanian law enforcement institutions (Police, Gendarmerie, Firefighters, Border Police).
+## 🎓 Educational Platform
 
-The platform provides comprehensive study materials, personalized learning analytics, and AI-driven tutoring for subjects including Criminal Law, Constitutional Law, Logic, Administrative Law, and other topics essential for law enforcement careers in Romania.
+### Subjects Covered (20 Active Categories)
+
+#### Core Legal Studies
+- **Criminal Law - General Part** (Drept Penal - Partea Generală) - Fundamental concepts, legal principles
+- **Criminal Law - Special Part** (Drept Penal - Partea Specială) - Specific crimes, infractions, penalties  
+- **Criminal Procedure Law** (Drept Procesual Penal) - Court procedures, evidence, investigation
+- **Constitutional Law** (Drept Constituțional) - Romanian constitution, state organization
+- **General Theory of Law** (Teoria Generală a Dreptului) - Legal concepts, sources of law
+
+#### MAI Specialized Legislation  
+- **MAI Legislation** (Legislația MAI) - Ministry of Internal Affairs specific laws
+- **Information Security** (Protecția Informațiilor Clasificate) - Classified information protocols
+- **GDPR** - Data protection regulation compliance
+
+#### General Education & Skills
+- **Romanian History** (Istoria Românilor) - National history, key events
+- **Languages** - Romanian, English, French, German proficiency
+- **Mathematics & Physics** - Quantitative reasoning and applications
+- **Logical Reasoning** (Raționament Logic) - Critical thinking, formal logic
+- **Civic Education** (Ed. Civică) - Citizenship, democratic principles
+
+#### Practical Training
+- **Psychology** (Psihologic) - Psychological evaluation, behavioral assessment
+- **Applied Training** (Traseu Aplicativ) - Practical exercises, real scenarios
 
 ### Key Features
+- 🔍 **Comprehensive learning progress analysis**
+- 📚 **Fuzzy search across 5,000+ educational articles**
+- 🧠 **AI-generated quizzes and personalized study tools**
+- 👥 **Peer collaboration and challenge systems**
+- 📊 **Detailed performance analytics and gap identification**
 
-- **Student Analytics**: Comprehensive learning progress analysis and knowledge gap identification
-- **Content Search**: Fuzzy search across 5,000+ educational articles and lessons
-- **Learning Tools**: Note-taking, progress tracking, and AI-generated quiz systems
-- **Peer Collaboration**: Student matching and challenge systems for collaborative learning
-- **Personalized Learning**: AI-driven recommendations based on individual performance data
+## 🎯 Who Benefits from This MCP Server
 
-## Tools
+### Primary Users: MAI Institution Admission Candidates
+Students preparing for entrance exams to Romania's Ministry of Internal Affairs educational institutions:
 
-### Student Data & Analytics
-- `get_student_data` - Comprehensive student profile and learning analytics
-- `update_reading_progress` - Track granular reading progress across educational content
+#### **Police Academy & Officer Programs**
+- **Police Academy** (Academia de Politie) - Bachelor's degree officer training
+- **Professional Master's Program** (Master Profesional Academia de Politie) - Advanced law enforcement leadership
+- **Firefighters Program** (Pompieri Academia de Politie) - Fire safety and emergency response specialization
 
-### Content Management  
-- `search_articles` - Search educational articles with fuzzy matching on titles
-- `get_article_content` - Retrieve paginated article content (5000 words/page)
-- `add_note` - Add personal notes to articles and lessons
+#### **Police Agent Schools**
+- **Police Agent School Campina** - Regional agent training program
+- **Police Agent School Cluj-Napoca** - Northern region agent training
 
-### Learning & Collaboration
-- `send_challenge` - Send learning challenges between students for competitive studying
-- `save_generated_quiz` - Save AI-generated quizzes to the platform for future practice
+#### **Specialized Law Enforcement**
+- **Border Police School Oradea** - Border control and frontier management
 
-## Installation
+#### **Gendarmerie Forces**
+- **Military Gendarmerie School Dragasani** - NCO and specialized training
+- **Military Gendarmerie School Falticeni** - Regional NCO program
 
-### Prerequisites
-- Node.js 18 or higher
-- Valid Academiadepolitie.com account and API token
+#### **Penitentiary System**
+- **ANP Targu Ocna** - Prison administration and corrections training
 
-### Claude Desktop
+### Secondary Users
+- **Educational Institutions** - AI-enhanced tutoring for law enforcement curricula
+- **Study Groups** - Collaborative learning with peer matching and challenges  
+- **Tutors & Instructors** - Personalized learning analytics and progress tracking
+- **Career Professionals** - Continuing education and skill development
+- **Researchers** - Educational data analysis and learning pattern insights
 
-Add the server config to your `claude_desktop_config.json`:
+*Supporting **30,000+ students** across all MAI educational institutions*
+
+## 🔧 Claude Desktop Configuration
+
+### Remote MCP Setup (Recommended)
+
+Add the following configuration to your `claude_desktop_config.json`:
 
 ```json
 {
   "mcpServers": {
-    "academiadepolitie": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "@academiadepolitie/mcp-server"
-      ],
-      "env": {
-        "ACADEMIADEPOLITIE_JWT_TOKEN": "your-jwt-token-here"
+    "academiadepolitie-remote": {
+      "transport": {
+        "type": "http",
+        "url": "https://mcp.academiadepolitie.com:8443/mcp"
       }
     }
   }
 }
 ```
 
-### Getting Your JWT Token
+### Setup Steps
 
-1. Visit [Academiadepolitie.com](https://www.academiadepolitie.com)
-2. Create an account or log in to your existing account
-3. Navigate to Account Settings → API Access
-4. Generate a new JWT token for MCP integration
-5. Copy the token and add it to your Claude configuration
+1. **Access the Remote Server**: Visit https://mcp.academiadepolitie.com:8443
+2. **OAuth Authentication**: Log in with your Academiadepolitie.com account
+3. **Claude Integration**: The server will guide you through connecting with Claude
+4. **Start Using**: Access all MCP tools directly from Claude Desktop or Claude Web
 
-## Usage Examples
+## 🔐 Authentication
 
-### Analyze Student Performance
-```
-Can you analyze my learning progress and identify areas where I need to focus more for my police academy entrance exam?
-```
-
-### Search for Specific Topics  
-```
-Find articles about "procedura penală" (criminal procedure) and show me the most relevant ones for my exam preparation.
-```
-
-### Generate Practice Questions
-```
-Based on the constitutional law article I just read, create 5 practice questions and save them for later review.
-```
-
-### Track Reading Progress
-```
-I just finished reading 75% of the criminal law fundamentals article. Please update my progress.
-```
-
-### Find Study Partners
-```
-Find other students who are strong in areas where I'm struggling, so we can help each other prepare for the entrance exams.
-```
-
-## Technical Details
-
-### Remote MCP Server
-This is a **Remote MCP Server** that runs on dedicated infrastructure and connects to Claude via HTTP/SSE transport with OAuth 2.1 authentication. It supports both Claude Desktop and Claude Web.
-
-### API Integration
-The server integrates with the Academiadepolitie.com internal API endpoints:
-- Educational content management system with 5,000+ articles
-- Student progress tracking database with granular analytics
-- Quiz and assessment generation engine powered by AI
-- Peer matching and collaboration tools for study groups
-
-### Authentication & Security
-- OAuth 2.1 with PKCE (RFC 7636) for secure authentication
-- JWT tokens for API access with audience validation
+This server uses **OAuth 2.1 with PKCE** for secure authentication:
+- No need to manually manage tokens
+- Secure browser-based login flow
+- Automatic token refresh
 - Rate limiting and CORS protection
-- Full MCP Auth Spec 2025-06-18 compliance
 
-## Development
+## 🛠️ Available MCP Tools
 
-### Local Development
-```bash
-# Clone the repository
-git clone https://github.com/academiadepolitie/mcp-server.git
-cd mcp-server
+Once connected, you'll have access to:
 
-# Install dependencies
-npm install
+### `get_student_data`
+- Retrieve comprehensive student performance analytics
+- Learning progress tracking
+- Strengths and weaknesses analysis
 
-# Set environment variables
-export ACADEMIADEPOLITIE_JWT_TOKEN="your-jwt-token"
-export API_BASE_URL="https://www.academiadepolitie.com/api/internal"
+### `search_articles` 
+- Fuzzy search across educational content
+- Advanced filtering by subject and difficulty
+- Relevance scoring and recommendations
 
-# Run the server
-npm run dev
-```
+### `get_article_content`
+- Access detailed lesson content
+- Progressive learning with pagination
+- Rich media support
 
-### Docker Support
-```bash
-# Build the image
-docker build -t academiadepolitie-mcp .
+### `add_note`
+- Create and manage study notes
+- Link notes to specific topics
+- Collaborative note sharing
 
-# Run with environment variables
-docker run -e ACADEMIADEPOLITIE_JWT_TOKEN="your-token" -p 3000:3000 academiadepolitie-mcp
-```
+### `send_challenge`
+- Create peer challenges
+- Gamified learning experiences
+- Performance comparisons
 
-## Use Cases
+### `update_reading_progress`
+- Track reading completion
+- Adaptive learning paths
+- Progress synchronization
 
-This MCP server is particularly valuable for:
+## 🌐 Server Infrastructure
 
-1. **Romanian Law Enforcement Students** - Preparing for entrance exams to Police Academy, Gendarmerie, Firefighters
-2. **Educational Institutions** - Providing AI-enhanced tutoring for law enforcement subjects
-3. **Study Groups** - Collaborative learning with peer matching and challenges
-4. **Personalized Learning** - AI-driven recommendations based on individual learning patterns
+- **Production URL**: https://mcp.academiadepolitie.com:8443
+- **Protocol**: HTTP/SSE with OAuth 2.1
+- **Uptime**: 99.9%+ availability
+- **Support**: Both Claude Desktop and Claude Web
 
-## Supported Subjects
+## 📋 System Requirements
 
-- **Criminal Law** (Drept Penal) - Fundamental concepts, infractions, penalties
-- **Constitutional Law** (Drept Constituțional) - Romanian constitution, state organization  
-- **Administrative Law** (Drept Administrativ) - Public administration, procedures
-- **Logic** (Logică) - Formal logic, reasoning, critical thinking
-- **General Culture** (Cultură Generală) - Romanian history, geography, institutions
+- Claude Desktop (latest version) or Claude Web access
+- Internet connection for OAuth authentication
+- Active Academiadepolitie.com account
 
-## Contributing
+## 🤝 Support
 
-We welcome contributions! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+- **Documentation**: Visit the server URL for interactive docs
+- **Issues**: Create an issue in this repository
+- **Platform Support**: Contact support@academiadepolitie.com
 
-## License
+## 📄 License
 
-MIT License - see [LICENSE](LICENSE) file for details.
-
-## Support
-
-For issues or questions:
-- **GitHub Issues**: [Report a bug](https://github.com/academiadepolitie/mcp-server/issues)
-- **Email**: contact@academiadepolitie.com
-- **Documentation**: [API Docs](https://www.academiadepolitie.com/api/docs)
-- **Website**: [Academiadepolitie.com](https://www.academiadepolitie.com)
+MIT License - see LICENSE file for details.
 
 ---
 
-**Note**: This server is designed specifically for students of Romanian law enforcement institutions. Some features may require active enrollment in preparation programs. The platform currently serves over 50,000 active students with a proven 87% success rate for exam preparation.
+**🎯 Transform your police academy preparation with AI-powered learning tools - connect your Academiadepolitie.com knowledge to Claude's intelligence!**
