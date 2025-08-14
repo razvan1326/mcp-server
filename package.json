@@ -38,6 +38,7 @@
   "homepage": "https://github.com/academiadepolitie/mcp-server#readme",
   "files": [
     "src/",
+    "auth/",
     "public/",
     "README.md",
     "LICENSE"
