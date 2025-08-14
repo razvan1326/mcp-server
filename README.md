@@ -117,33 +117,46 @@ Once connected, you'll have access to:
 
 ### `get_student_data`
 - Retrieve comprehensive student performance analytics
-- Learning progress tracking
-- Strengths and weaknesses analysis
+- Learning progress tracking and behavioral profiling
+- Gap analysis and peer matching for collaboration
+- Strengths and weaknesses identification across all subjects
+- Filter by institution, admission year, or geographic region
 
-### `search_articles` 
-- Fuzzy search across educational content
-- Advanced filtering by subject and difficulty
-- Relevance scoring and recommendations
+### `search_articles`
+- Fuzzy search across 5,000+ educational articles and lessons
+- Advanced filtering by subject categories and difficulty levels
+- Relevance scoring and intelligent content recommendations
+- Search across all 20 active subject categories
 
 ### `get_article_content`
-- Access detailed lesson content
-- Progressive learning with pagination
-- Rich media support
+- Access detailed lesson content with smart pagination (5,000 words/page)
+- Progressive learning with reading tracking
+- Rich media support for enhanced understanding
+- Structured content delivery optimized for study sessions
 
 ### `add_note`
-- Create and manage study notes
-- Link notes to specific topics
-- Collaborative note sharing
+- Create and manage personalized study notes
+- Link notes to specific topics and lessons
+- Collaborative note sharing with study groups
+- AI-enhanced note organization and categorization
 
 ### `send_challenge`
-- Create peer challenges
-- Gamified learning experiences
-- Performance comparisons
+- Create peer challenges for competitive learning
+- Customize quiz difficulty and question count (5-30 questions)
+- Gamified learning experiences with performance tracking
+- Subject-specific competitions across all MAI curriculum areas
 
 ### `update_reading_progress`
-- Track reading completion
-- Adaptive learning paths
-- Progress synchronization
+- Track reading completion with precise progress metrics (0-100%)
+- Adaptive learning paths based on comprehension levels
+- Page-by-page progress synchronization
+- Intelligent content recommendation based on reading patterns
+
+### `save_generated_quiz`
+- Save AI-generated quizzes directly to the platform
+- Generate up to 10 questions per quiz session
+- Multiple-choice format with detailed explanations
+- Subject categorization for organized quiz libraries
 
 ## 🌐 Server Infrastructure
 
