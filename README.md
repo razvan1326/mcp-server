@@ -40,7 +40,7 @@ Unlike Local MCP servers that run on your machine, this Remote MCP server runs o
 ### Key Features
 - 🔍 **Comprehensive learning progress analysis**
 - 📚 **Fuzzy search across 5,000+ educational articles**
-- 🧠 **AI-generated quizzes and personalized study tools**
+- 🧠 **Personalized AI-generated quizzes and study tools**
 - 👥 **Peer collaboration and challenge systems**
 - 📊 **Detailed performance analytics and gap identification**
 
