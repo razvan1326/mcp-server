@@ -170,4 +170,4 @@ MIT License - see LICENSE file for details.
 
 ---
 
-**🎯 Transform your police academy preparation with AI-powered learning tools - connect your Academiadepolitie.com knowledge to Claude's intelligence!**
+**🎯 Transform your Admission Exam preparation with AI-powered learning tools - connect your Academiadepolitie.com knowledge to Claude's intelligence!**
